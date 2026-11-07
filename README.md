@@ -59,6 +59,16 @@ Development uses **VS Code + PlatformIO (C++ for ESP32)**. Initial firmware uplo
 - What current rating is required for simultaneous servo motion?
 - How will camera perspective and acrylic reflections affect position measurements?
 
-## Project history
+## Development logbook
 
-The original [Day 1 project log](01_ProjectLog) (5 October 2026) is preserved unchanged.
+The project currently has **five recorded development sessions** (not five consecutive calendar days):
+
+| Day | Work | Log |
+|---|---|---|
+| 1 | Initial concept, research and system architecture | [Day 1](01_ProjectLog) |
+| 2 | CAD for the initial arms and top plate | [Day 2](02_Day2_CAD.md) |
+| 3 | Shoulder CAD, longer revised arms, BOM and component orders | [Day 3](03_Day3_Arm_Revision_BOM.md) |
+| 4 | Wiring and individual BMI160/PCA9685 module tests | [Day 4](04_Day4_Wiring_Component_Tests.md) |
+| 5 | Main base CAD design | [Day 5](05_Day5_Base_Design.md) |
+
+The original Day 1 record is preserved unchanged. Session dates for Days 2–5 were not established and have not been invented.
