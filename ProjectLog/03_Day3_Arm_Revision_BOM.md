@@ -1,25 +1,13 @@
-# Day 3 — Shoulders, Arm Revision and BOM
+# Day 3 — Arm redesign, shoulders and parts list
 
-> Session date: not recorded. This is the third actual development session.
+I continued working on the mechanical design in Fusion 360. After looking at the arms from Day 2, I realised they were too short for the linkage arrangement I had in mind, so I made a longer version rather than trying to work around the original dimensions.
 
-## Objective
-Refine the mechanical linkage design and organise component procurement.
+I also designed the shoulder pieces that will connect the mechanism to the servo arms. The updated parts have mounting holes for the joints, and the CAD model helped me check the shapes before moving on to a physical build.
 
-## Work completed
-- Designed the **servo shoulders** in Fusion 360.
-- Reviewed the Day 2 servo-arm design and identified that the original arms were **too short**.
-- Produced a **revised arm design** to address the length issue.
-- Prepared a **Bill of Materials (BOM)** for the project.
-- Ordered project components based on the BOM.
+![Updated arms and shoulder CAD in Fusion 360](Day3_Arm_Shoulder_CAD.png)
 
-## Engineering decision
-**Arm redesign:** The initial arm length did not meet the intended mechanical geometry. Rather than retaining the first design, the arm was revised before proceeding with the assembly.
+*Figure 1 — Revised arm and shoulder designs in Fusion 360. The taller tapered parts are the shoulder components; the shorter cylindrical parts show the updated arm design.*
 
-## Outcome
-Shoulder CAD and a revised arm design prepared; component procurement initiated.
+I put together a **bill of materials (BOM)** and ordered the components needed for the build. This was mainly a design and procurement session; I hadn't assembled or tested the full linkage yet.
 
-## Next session
-Wire and test the IMU and PWM servo driver separately.
-
-## Verification
-The exact BOM quantities, part numbers, order dates and revised arm dimensions have not been recorded in this repository; they should be added from source records rather than guessed. This entry does not claim a completed mechanical assembly.
+**Next:** Wire up the BMI160 and PCA9685 and test them separately.
