@@ -8,9 +8,9 @@ At this stage, the aim was to get the basic geometry into CAD and see how the pa
 
 ### CAD screenshot
 
-**Figure 1 —** Fusion 360 view of the initial top plate and four original servo-arm components. The screenshot shows the design **before** the arm-length revision on Day 3.
+![Fusion 360 CAD screenshot showing the initial top plate and four original servo arms](Day2_CAD.jpg)
 
-*Image pending upload to the repository.*
+*Figure 1 — Initial Fusion 360 CAD of the top plate and four original servo arms, before the arm-length revision on Day 3.*
 
 ### Progress at the end of Day 2
 
