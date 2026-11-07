@@ -1,57 +1,64 @@
 # Ball-and-Plate Control
 
-A project to balance a table tennis ball on a tilting acrylic platform using computer vision, an IMU and an ESP32.
+A work-in-progress, four-servo ball-balancing platform built around an ESP32, PCA9685 PWM driver, BMI160 IMU, and a 160 × 160 × 3.5 mm acrylic plate. The long-term goal is to balance a table-tennis ball and track target positions using camera feedback.
 
-The initial goal is to bring the ball to the centre and hold it there. Later goals include moving between target positions and following paths.
+**Status — 7 November 2026:** Mechanical CAD and component selection have progressed; preliminary ESP32 firmware has been uploaded. **No verified closed-loop balancing, PID control, or camera tracking has been implemented.**
 
-## Current Status
+## Hardware and mechanical design
 
-Concept development. Component selection and mechanical validation are pending. Simulation and hardware testing have not yet started.
+| Subsystem | Current design | Status |
+|---|---|---|
+| Plate | 160 × 160 × 3.5 mm acrylic | Selected; full assembly unverified |
+| Actuation | Four Miuzei 9 g metal-gear 180° positional servos | Acquired; coordinated motion unverified |
+| Linkages | Custom Fusion 360 arms/shoulders, 12 mm M4-threaded steel balls and magnetic ring holders | CAD developed; mechanical performance unverified |
+| Servo driver | PCA9685 16-channel PWM board | Wiring in progress |
+| Controller | ESP32 | Initial PlatformIO firmware upload successful |
+| IMU | GY-BMI160 6-axis accelerometer/gyroscope | Selected; readings not yet verified |
+| Power | Separate regulated 5 V servo supply and logic power with common ground | Planned/wiring explored; combined load not validated |
+| Camera | Under-plate tracking, initially potentially a phone | Planned; not integrated |
 
-## Proposed Design
+The first prototype uses a **parallel servo layout**. Alternative diagonal geometry was considered. Custom servo mounts, magnetic joints, printed base parts and mounting hardware have been designed or investigated. Fit, stiffness, maximum tilt, backlash and servo loads remain to be tested.
 
-| Component | Plan |
-|---|---|
-| Plate | Clear acrylic, 160 × 160 × 3.5 mm; approximately 106 g |
-| Ball | Table tennis ball |
-| Actuation | Four positional servos linked to the plate’s corners |
-| Camera | Mounted underneath to track ball position |
-| IMU | Mounted on the moving plate to estimate tilt and measure angular velocity |
-| Microcontroller | ESP32 |
-| Computer | Laptop for image processing and control development |
+**Power caution:** A 5 V/2 A source was considered, but has not been verified sufficient for four servos under load. Check peak current, wiring and common ground before energising the assembled mechanism.
 
-The camera will track the ball’s position, with successive frames used to estimate its velocity. The controller will calculate a desired plate tilt, and the ESP32 will coordinate the servos. IMU measurements will provide feedback on the plate’s motion.
+## Firmware and electronics progress
 
-Load-cell sensing is deferred from the initial build.
+Development uses **VS Code + PlatformIO (C++ for ESP32)**. Initial firmware uploaded successfully, and the serial monitor displayed repeated I²C scanning output. This does **not** establish that the BMI160 and PCA9685 have both been detected or that the servos operate correctly. Firmware source has not yet been published in this repository.
 
-## Planned Tools
+## Development milestones
 
-- MATLAB/Simulink — system modelling and controller development.
-- Python/OpenCV — camera processing and ball tracking.
-- C/C++ — ESP32 firmware.
-- CAD software — mechanical design and printed components.
+- [x] Define ball-and-plate concept and provisional plate dimensions.
+- [x] Select ESP32, PCA9685, BMI160 and four Miuzei positional servos.
+- [x] Develop Fusion 360 CAD for base, arms, shoulders and magnetic ball-joint linkages.
+- [x] Select parallel servo orientation for initial prototype.
+- [x] Set up PlatformIO and upload preliminary ESP32 firmware.
+- [x] Observe serial I²C scanning output.
+- [ ] Fabricate, assemble and mechanically validate the full platform.
+- [ ] Verify power distribution, I²C devices and IMU measurements.
+- [ ] Calibrate servo neutral points and coordinated plate tilt.
+- [ ] Model ball dynamics in MATLAB/Simulink.
+- [ ] Develop and tune PID or other feedback control.
+- [ ] Implement Python/OpenCV ball tracking.
+- [ ] Demonstrate and measure stable ball balancing and target tracking.
 
-## Development Plan
+## Development update: October–7 November 2026
 
-- [x] Define the initial concept and provisional dimensions.
-- [x] Review available components.
-- [x] Contact the university about borrowing hardware.
-- [ ] Model one-axis ball motion in Simulink.
-- [ ] Develop and evaluate a controller in simulation.
-- [ ] Validate the linkage design and mechanical constraints.
-- [ ] Select and test the camera, IMU and servos.
-- [ ] Build and test the platform.
-- [ ] Integrate ball tracking and feedback control.
-- [ ] Measure balancing and target-tracking performance.
+**Mechanical:** Custom Fusion 360 base and linkage CAD developed; M4 internal-thread steel balls and magnetic rings selected; M2/M3 fastening, servo horns, interference clearances and 3D printing explored. The complete assembly is not yet validated.
 
-## Engineering Questions
+**Electronics:** Four 180° servos, ESP32, PCA9685 and BMI160 selected. Separate servo power and logic power with common ground planned. Safe combined current draw and end-to-end servo actuation remain unverified.
 
-- How will the mechanism constrain sideways movement and unwanted rotation?
-- How should the four servos be coordinated without fighting each other?
-- What torque, speed and power supply are required?
-- How will plate tilt and acrylic reflections affect camera measurements?
-- Is the proposed acrylic thickness sufficiently stiff at the corner mounts?
+**Software:** PlatformIO environment configured and an ESP32 firmware upload succeeded; serial I²C scan messages observed. No calibrated tilt-feedback loop, camera tracking or balancing controller is yet demonstrated.
 
-## Project Logs
+**Next:** Finish printed assembly and mounts, verify the supply and sensor communications, calibrate the four servos, then begin controlled tilt tests before implementing ball tracking and feedback control.
 
-Daily progress, decisions, experiments and results are recorded in [project logs](project%20logs/).
+## Engineering questions
+
+- How will the mechanism prevent unwanted translation/yaw while permitting pitch and roll?
+- How can four servos be coordinated without over-constraining the plate?
+- What are the usable tilt range, stiffness, backlash and torque requirements?
+- What current rating is required for simultaneous servo motion?
+- How will camera perspective and acrylic reflections affect position measurements?
+
+## Project history
+
+The original [Day 1 project log](01_ProjectLog) (5 October 2026) is preserved unchanged.
