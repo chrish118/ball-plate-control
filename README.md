@@ -65,10 +65,10 @@ The project currently has **five recorded development sessions** (not five conse
 
 | Day | Work | Log |
 |---|---|---|
-| 1 | Initial concept, research and system architecture | [Day 1](01_ProjectLog) |
-| 2 | CAD for the initial arms and top plate | [Day 2](02_Day2_CAD.md) |
-| 3 | Shoulder CAD, longer revised arms, BOM and component orders | [Day 3](03_Day3_Arm_Revision_BOM.md) |
-| 4 | Wiring and individual BMI160/PCA9685 module tests | [Day 4](04_Day4_Wiring_Component_Tests.md) |
-| 5 | Main base CAD design | [Day 5](05_Day5_Base_Design.md) |
+| 1 | Initial concept, research and system architecture | [Day 1](ProjectLog/01_Day1_Concept.md) |
+| 2 | CAD for the initial arms and top plate | [Day 2](ProjectLog/02_Day2_CAD.md) |
+| 3 | Shoulder CAD, longer revised arms, BOM and component orders | [Day 3](ProjectLog/03_Day3_Arm_Revision_BOM.md) |
+| 4 | Wiring and individual BMI160/PCA9685 module tests | [Day 4](ProjectLog/04_Day4_Wiring_Component_Tests.md) |
+| 5 | Main base CAD design | [Day 5](ProjectLog/05_Day5_Base_Design.md) |
 
 The original Day 1 record is preserved unchanged. Session dates for Days 2–5 were not established and have not been invented.
